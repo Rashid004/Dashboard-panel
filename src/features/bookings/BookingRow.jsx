@@ -1,5 +1,7 @@
-import styled from "styled-components";
+/** @format */
+
 import { format, isToday } from "date-fns";
+import styled from "styled-components";
 
 import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
@@ -57,12 +59,10 @@ function BookingRow({
   return (
     <Table.Row>
       <Cabin>{cabinName}</Cabin>
-
       <Stacked>
         <span>{guestName}</span>
         <span>{email}</span>
       </Stacked>
-
       <Stacked>
         <span>
           {isToday(new Date(startDate))
@@ -75,9 +75,7 @@ function BookingRow({
           {format(new Date(endDate), "MMM dd yyyy")}
         </span>
       </Stacked>
-
       <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
-
       <Amount>{formatCurrency(totalPrice)}</Amount>
     </Table.Row>
   );
