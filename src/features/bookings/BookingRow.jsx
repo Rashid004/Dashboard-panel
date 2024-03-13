@@ -55,7 +55,6 @@ function BookingRow({
     "checked-in": "green",
     "checked-out": "silver",
   };
-  console.log(startDate, endDate, bookingId);
   return (
     <Table.Row>
       <Cabin>{cabinName}</Cabin>
