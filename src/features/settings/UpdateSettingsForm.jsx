@@ -3,8 +3,8 @@
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import { useSetting } from "./useSettings";
 import Spinner from "../../ui/Spinner";
+import { useSettings } from "./useSettings";
 import { useUpdteSetting } from "./useUpdateSettings";
 
 function UpdateSettingsForm() {
@@ -16,19 +16,18 @@ function UpdateSettingsForm() {
       maxGuestsPerBooking,
       breakfastPrice,
     } = {},
-  } = useSetting();
-
+  } = useSettings();
   const { isUpdating, updateSetting } = useUpdteSetting();
 
   if (isLoading) return <Spinner />;
 
   function handleUpdate(e, field) {
     const { value } = e.target;
-    console.log(value);
 
     if (!value) return;
     updateSetting({ [field]: value });
   }
+
   return (
     <Form>
       <FormRow label="Minimum nights/booking">
